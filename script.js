@@ -4,7 +4,7 @@ let skorSalah = 0;
 let intervalId;
 let riwayatBenar = [];
 let riwayatSalah = [];
-let waktu = 10;
+let waktu = 60;
 
 // ======= Fungsi buat angka random dan update tampilan =======
 function nextPair() {
@@ -57,7 +57,7 @@ function startTest() {
     skorSalah = 0;
     riwayatBenar = [];
     riwayatSalah = [];
-    waktu = 10;
+    waktu = 60;
     updateSkorDisplay();
 
     nextPair();
@@ -125,3 +125,4 @@ function selesaiTes() {
     document.getElementById('kesimpulan').innerText =
         `Persentase benar: ${Math.round(persentase)}% - ${kategori}`;
 }
+
