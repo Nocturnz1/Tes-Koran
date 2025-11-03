@@ -22,22 +22,3 @@ button {
     margin: 5px;
     border-radius: 10px;
 }
-#angka h1 {
-    font-size: 10vw; /* ukuran fleksibel sesuai lebar layar */
-    margin: 0;
-}
-
-#tombol {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 5px;
-    max-width: 250px; /* batasi lebar grid */
-    margin: 0 auto 20px;
-}
-
-#tombol button {
-    width: 100%;
-    aspect-ratio: 1/1; /* tombol selalu kotak */
-    font-size: 6vw; /* ukuran fleksibel */
-    border-radius: 10px;
-}
