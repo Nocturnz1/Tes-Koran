@@ -57,7 +57,7 @@ function startTest() {
     skorSalah = 0;
     riwayatBenar = [];
     riwayatSalah = [];
-    waktu = 60;
+    waktu = 10;
     updateSkorDisplay();
 
     nextPair();
