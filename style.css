@@ -1,0 +1,24 @@
+body {
+    font-family: Arial;
+    text-align: center;
+    background: #f0f5ff;
+}
+
+#timer {
+    font-size: 40px;
+    margin: 20px;
+    font-weight: bold;
+}
+
+#angka h1 {
+    font-size: 60px;
+    margin: 10px;
+}
+
+button {
+    width: 80px;
+    height: 80px;
+    font-size: 30px;
+    margin: 5px;
+    border-radius: 10px;
+}
