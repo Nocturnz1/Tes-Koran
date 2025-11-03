@@ -4,7 +4,7 @@ let skorSalah = 0;
 let intervalId;
 let riwayatBenar = [];
 let riwayatSalah = [];
-let waktu = 60;
+let waktu = 10;
 
 // ======= Fungsi buat angka random dan update tampilan =======
 function nextPair() {
