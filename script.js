@@ -79,7 +79,7 @@ function selesaiTes() {
     document.getElementById("test-screen").style.display = "none";
     document.getElementById("result-screen").style.display = "block";
 
-    // Tampilkan grafik garis
+    // Grafik tetap untuk riwayat jawaban
     const ctx = document.getElementById('grafik').getContext('2d');
     new Chart(ctx, {
         type: 'line',
@@ -92,37 +92,34 @@ function selesaiTes() {
                     borderColor: '#4CAF50',
                     fill: false,
                     tension: 0.2
-                },
-                {
-                    label: 'Salah',
-                    data: riwayatSalah,
-                    borderColor: '#F44336',
-                    fill: false,
-                    tension: 0.2
                 }
             ]
         },
-        options: {
-            responsive: true,
-            plugins: {
-                legend: { position: 'top' }
-            },
-            scales: {
-                y: { beginAtZero: true, precision:0 },
-                x: { title: { display: true, text: 'Soal ke-' } }
-            }
-        }
+        options: { responsive: true }
     });
 
-    // Kesimpulan
-    const total = skorBenar + skorSalah;
-    const persentase = total ? (skorBenar / total) * 100 : 0;
+    // Hitung skor berdasarkan jawaban benar dan waktu yang digunakan
+    const waktuDipakai = 60 - waktu; // detik yang dipakai
+    const totalJawaban = riwayatBenar.length; // total soal dijawab
+    const jawabanBenar = skorBenar;
+
+    // Skor dasar = persentase jawaban benar
+    const skorPersentase = totalJawaban ? (jawabanBenar / totalJawaban) * 100 : 0;
+
+    // Faktor waktu: semakin cepat selesai → skor tambah, misal skala 0–30
+    const faktorWaktu = Math.max(0, (60 - waktuDipakai) / 60) * 30;
+
+    // Skor akhir = skor jawaban + faktor waktu
+    const skorAkhir = skorPersentase * 0.7 + faktorWaktu;
+
+    // Tentukan kategori
     let kategori = '';
-    if (persentase >= 80) kategori = 'Bagus Sekali';
-    else if (persentase >= 50) kategori = 'Bagus';
+    if (skorAkhir >= 80) kategori = 'Bagus Sekali';
+    else if (skorAkhir >= 50) kategori = 'Bagus';
     else kategori = 'Kurang';
 
     document.getElementById('kesimpulan').innerText =
-        `Persentase benar: ${Math.round(persentase)}% - ${kategori}`;
+        `Skor akhir: ${Math.round(skorAkhir)}% (${kategori}) - Jawaban benar: ${jawabanBenar}, Waktu dipakai: ${Math.round(waktuDipakai)} detik`;
 }
+
 
