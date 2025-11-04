@@ -4,7 +4,7 @@ let skorSalah = 0;
 let intervalId;
 let riwayatBenar = [];
 let riwayatSalah = [];
-let waktu = 360;
+let waktu = 60;
 
 // ======= Fungsi buat angka random dan update tampilan =======
 function nextPair() {
@@ -57,7 +57,7 @@ function startTest() {
     skorSalah = 0;
     riwayatBenar = [];
     riwayatSalah = [];
-    waktu = 360;
+    waktu = 60;
     updateSkorDisplay();
 
     nextPair();
@@ -99,7 +99,7 @@ function selesaiTes() {
     });
 
     // Hitung skor berdasarkan jawaban benar dan waktu yang digunakan
-    const waktuDipakai = 360 - waktu; // detik yang dipakai
+    const waktuDipakai = 60 - waktu; // detik yang dipakai
     const totalJawaban = riwayatBenar.length; // total soal dijawab
     const jawabanBenar = skorBenar;
 
@@ -107,7 +107,7 @@ function selesaiTes() {
     const skorPersentase = totalJawaban ? (jawabanBenar / totalJawaban) * 100 : 0;
 
     // Faktor waktu: semakin cepat selesai → skor tambah, misal skala 0–30
-    const faktorWaktu = Math.max(0, (360 - waktuDipakai) / 360) * 30;
+    const faktorWaktu = Math.max(0, (60 - waktuDipakai) / 60) * 30;
 
     // Skor akhir = skor jawaban + faktor waktu
     const skorAkhir = skorPersentase * 0.7 + faktorWaktu;
@@ -121,6 +121,7 @@ function selesaiTes() {
     document.getElementById('kesimpulan').innerText =
         `Skor akhir: ${Math.round(skorAkhir)}% (${kategori}) - Jawaban benar: ${jawabanBenar}, Waktu dipakai: ${Math.round(waktuDipakai)} detik`;
 }
+
 
 
 
