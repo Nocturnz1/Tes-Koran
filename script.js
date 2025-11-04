@@ -57,7 +57,7 @@ function startTest() {
     skorSalah = 0;
     riwayatBenar = [];
     riwayatSalah = [];
-    waktu = 60;
+    waktu = 360;
     updateSkorDisplay();
 
     nextPair();
@@ -107,7 +107,7 @@ function selesaiTes() {
     const skorPersentase = totalJawaban ? (jawabanBenar / totalJawaban) * 100 : 0;
 
     // Faktor waktu: semakin cepat selesai → skor tambah, misal skala 0–30
-    const faktorWaktu = Math.max(0, (60 - waktuDipakai) / 60) * 30;
+    const faktorWaktu = Math.max(0, (360 - waktuDipakai) / 360) * 30;
 
     // Skor akhir = skor jawaban + faktor waktu
     const skorAkhir = skorPersentase * 0.7 + faktorWaktu;
@@ -121,6 +121,7 @@ function selesaiTes() {
     document.getElementById('kesimpulan').innerText =
         `Skor akhir: ${Math.round(skorAkhir)}% (${kategori}) - Jawaban benar: ${jawabanBenar}, Waktu dipakai: ${Math.round(waktuDipakai)} detik`;
 }
+
 
 
 
