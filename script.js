@@ -4,7 +4,7 @@ let skorSalah = 0;
 let intervalId;
 let riwayatBenar = [];
 let riwayatSalah = [];
-let waktu = 60;
+let waktu = 360;
 
 // ======= Fungsi buat angka random dan update tampilan =======
 function nextPair() {
@@ -99,7 +99,7 @@ function selesaiTes() {
     });
 
     // Hitung skor berdasarkan jawaban benar dan waktu yang digunakan
-    const waktuDipakai = 60 - waktu; // detik yang dipakai
+    const waktuDipakai = 360 - waktu; // detik yang dipakai
     const totalJawaban = riwayatBenar.length; // total soal dijawab
     const jawabanBenar = skorBenar;
 
@@ -121,5 +121,6 @@ function selesaiTes() {
     document.getElementById('kesimpulan').innerText =
         `Skor akhir: ${Math.round(skorAkhir)}% (${kategori}) - Jawaban benar: ${jawabanBenar}, Waktu dipakai: ${Math.round(waktuDipakai)} detik`;
 }
+
 
 
